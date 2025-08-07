@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vote Page</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #222;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      width: 300px;
+    }
+
+    input, select, button {
+      margin: 10px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      width: 70%;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .results {
+      margin-top: 20px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Cast Your Vote</h2>
+    <input type="text" id="nameInput" placeholder="Enter your name" />
+    <select id="candidateSelect">
+      <option value="">-- Select a candidate --</option>
+      <option value="Fola">Fola</option>
+      <option value="Ade">Ade</option>
+      <option value="Bayo">Bayo</option>
+    </select>
+    <button onclick="submitVote()">Vote</button>
+
+    <div class="results">
+      <h3>Live Results</h3>
+      <p>Fola: <span id="folaCount">0</span></p>
+      <p>Ade: <span id="adeCount">0</span></p>
+      <p>Bayo: <span id="bayoCount">0</span></p>
+    </div>
+  </div>
+
+  <script>
+    // Initialize vote counts
+    const voteCounts = {
+      Fola: parseInt(localStorage.getItem('Fola')) || 0,
+      Ade: parseInt(localStorage.getItem('Ade')) || 0,
+      Bayo: parseInt(localStorage.getItem('Bayo')) || 0
+    };
+
+    // Load voted names
+    const votedNames = JSON.parse(localStorage.getItem('votedNames')) || [];
+
+    function updateResults() {
+      document.getElementById('folaCount').textContent = voteCounts.Fola;
+      document.getElementById('adeCount').textContent = voteCounts.Ade;
+      document.getElementById('bayoCount').textContent = voteCounts.Bayo;
+    }
+
+    function submitVote() {
+      const name = document.getElementById('nameInput').value.trim();
+      const candidate = document.getElementById('candidateSelect').value;
+
+      if (!name || !candidate) {
+        alert("Please enter your name and select a candidate.");
+        return;
+      }
+
+      if (votedNames.includes(name.toLowerCase())) {
+        alert("You have already voted!");
+        return;
+      }
+
+      voteCounts[candidate]++;
+      votedNames.push(name.toLowerCase());
+
+      // Save to localStorage
+      localStorage.setItem(candidate, voteCounts[candidate]);
+      localStorage.setItem('votedNames', JSON.stringify(votedNames));
+
+      updateResults();
+      alert(`Thank you, ${name}! You have voted for ${candidate}.`);
+    }
+
+    updateResults(); // Initial load
+  </script>
+</body>
+</html>

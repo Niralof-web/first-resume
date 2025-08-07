@@ -1,47 +1,237 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <title>fola's login page</title>
     <style>
-        img{
-            height: 300px;
-            width: 200px;
-        }
-        body{
-            background-color: rgb(110, 108, 112);
-        }
+        body {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-image: url('image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; /* fixed typo */
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.a {
+  margin: 100px auto;
+  padding: 20px;
+  width: 300px;
+  background-color: rgb(219, 200, 200);
+  border-radius: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.a h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.b, .d, .f, .h {
+  margin-bottom: 15px;
+}
+
+.b label, .d label, .f label, .h label {
+  margin-bottom: 5px;
+  display: block;
+}
+
+.b input, .d input, .f input, .h input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+}
+
+.k {
+  width: 100%;
+  padding: 10px;
+  background-color: grey;
+  color: whitesmoke;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.k:hover {
+  background-color: rgb(159, 166, 213);
+}
+
+.m {
+  position: absolute;
+  top: 50%;
+  right: -50px;
+  transform: translateY(-59%);
+  z-index: 1;
+}
+
+.m img.n {
+  width: 250px;
+  transform: rotate(5deg);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  position: relative;
+  height: 100px;
+}
+
+.top-right-logo {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  height: 60px;
+  width: auto;
+  border-radius: 70px;
+}
+.icon-list-container {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 10;
+}
+
+.icon-list {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.icon-list li a {
+  text-align: center;
+  text-decoration: none;
+  color: #ebdcdc;
+  font-family: sans-serif;
+  font-size: 12px;
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-left: 10px;
+}
+
+.icon-list li a img {
+  width: 30px;
+  height: 30px;
+}
+
+.icon-list li a:hover {
+  transform: scale(1.1);
+  color: #bdc7cf;
+}
+
+
+
     </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <body>
-    <h1>Adesola Folarin</h1>
-    <img src="picture.jpg" alt="this is folarin's picture">
-    <h2>Frontend developer</h2><br>
-    <h2>Career Objective</h2>
-    <p>A goal driven and principled individual <br> with the aim of working in an organization where opportunities for career development, <br> continuous learning, and satisfactory results for productivity will be provided. Folarin seeks a position in a dynamic work environment where he can build his frontend career and contribute to the organization's growth and development.</p>
-    <hr>
-    <h2>Education</h2>
-    <ul>
-        <li> Barchelor in Electrical and Electronic Engineering - Olabisi Onabanjo University 2021-till date</li>
-    </ul>
-    <hr>
-    <h1> Work Experience</h1>
-    <ul>
-        <li>
-            <h3>personal learning </h3>
-            <li>
-                july 2022 - till date
-            </li>
-        </li>
-    </ul>
+    <header>
+    <img src="mag.png" alt="Site Logo" class="top-right-logo">
+  </header>
+  <div class="icon-list-container">
+  <ul class="icon-list">
+    <li>
+      <a href="vote.html" title="Vote">
+        
+        <span>Vote</span>
+      </a>
+    </li>
+    <li>
+      <a href="voting-time.html" title="Check Voting Time">
 
-    <ul>
-        <h3>Skills</h3>
-        <li>
-            problem solving skills  👌👌👌👌👌
-        </li>
-    </ul>
-    <a href="contact.html"> contact</a>
+        <span>Voting Time</span>
+      </a>
+    </li>
+    <li>
+      <a href="about.html" title="About">
+        
+        <span>About</span>
+      </a>
+    </li>
+  </ul>
+</div>
 
+    <div class="fola">
+    <div class="a">
+
+        <h1>nira's login page</h1>
+
+        <div class="b">
+            <label for="c">USERNAME</label>
+            <input type="text" id="c" placeholder="Enter Username">
+
+        </div>
+
+        <div class="d">
+             <label for="e">password</label>
+            <input type="password" id="e" placeholder="Enter password">
+
+        </div>
+
+        <div class="f">
+             <label for="g">EMAIL</label>
+            <input type="email" id="g" placeholder="Enter email">
+            
+        </div>
+
+        <div class="h">
+             <label for="i">AGE</label>
+            <input type="number" id="i" placeholder="Enter age">
+
+            
+        </div>
+        <div class="j">
+            <button class="k" onclick="login() ">LOGIN</button>
+
+        </div>
+        <div class="l">
+           <p>
+            Dont have an account? <a href ="signup.html">signup</a>
+           </p>
+        </div>
+        
+    </div>
+    <div class="m">
+ 
+            
+  
+            <img src="img.png" alt="hip, isolated on a transparent background. The hand is positioned upright, fingers gently curved, suggesting confidence and professionalism. No text is visible on the card or in the environment." class="n">
+</div>
+</div>
+<script>
+  function login() {
+    const ageInput = document.getElementById('i').value.trim();
+
+    if (!ageInput || isNaN(ageInput)) {
+      alert("Please enter a valid age.");
+      return;
+    }
+
+    const age = parseInt(ageInput);
+
+    if (age >= 18) {
+      alert("You can vote!");
+      window.location.href = "vote.html";
+    } else {
+      alert("Sorry, you must be at least 18 to vote.");
+    }
+  }
+</script>
 </body>
 </html>
